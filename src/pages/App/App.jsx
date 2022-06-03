@@ -4,6 +4,8 @@ import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
 import ConcertsPage from '../ConcertsPage/ConcertsPage';
+import SportsPage from '../SportsPage/SportsPage';
+import MorePage from '../MorePage/MorePage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -21,6 +23,8 @@ function App() {
             {/* Route components in here */}
             <Route path="/" element={<HomePage />} />
             <Route path="/concerts" element={<ConcertsPage />} />
+            <Route path="/sports" element={<SportsPage />} />
+            <Route path="/more" element={<MorePage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
           </Routes>
