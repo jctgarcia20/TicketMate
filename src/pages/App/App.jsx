@@ -6,7 +6,7 @@ import HomePage from '../HomePage/HomePage';
 import ConcertsPage from '../ConcertsPage/ConcertsPage';
 import SportsPage from '../SportsPage/SportsPage';
 import MorePage from '../MorePage/MorePage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
+import CartPage from '../CartPage/CartPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
@@ -25,7 +25,7 @@ function App() {
             <Route path="/concerts" element={<ConcertsPage />} />
             <Route path="/sports" element={<SportsPage />} />
             <Route path="/more" element={<MorePage />} />
-            <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
           </Routes>
         </>
