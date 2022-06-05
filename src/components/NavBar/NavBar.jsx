@@ -12,21 +12,21 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link className='nav-left' to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/concerts">Concerts</Link>
+      <Link className='nav-left' to="/concerts">Concerts</Link>
       &nbsp; | &nbsp;
-      <Link to="/sports">Sports</Link>
+      <Link className='nav-left' to="/sports">Sports</Link>
       &nbsp; | &nbsp;
-      <Link to="/more">More</Link>
+      <Link className='nav-left' to="/more">More</Link>
       &nbsp; | &nbsp;
-      <Link to="/cart">Cart</Link>
+      <Link className='nav-right' to="/cart">Cart</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders">My Orders</Link>
+      <Link className='nav-right' to="/orders">My Orders</Link>
       &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
+      <Link className='nav-right' to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   );
 }
