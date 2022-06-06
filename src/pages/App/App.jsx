@@ -9,6 +9,7 @@ import MorePage from '../MorePage/MorePage';
 import CartPage from '../CartPage/CartPage';
 import MyOrdersPage from '../MyOrdersPage/MyOrdersPage';
 import NavBar from '../../components/NavBar/NavBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import './App.css';
 
 function App() {
@@ -25,13 +26,14 @@ function App() {
             <Route path="/concerts" element={<ConcertsPage />} />
             <Route path="/sports" element={<SportsPage />} />
             <Route path="/more" element={<MorePage />} />
-            <Route path="/cart" element={<CartPage />} />
             <Route path="/orders" element={<MyOrdersPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </>
         :
         <AuthPage setUser={setUser} />
       }
+      <SearchBar />
     </main>
   );
 }

@@ -20,9 +20,9 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link className='nav-left' to="/more">More</Link>
       &nbsp; | &nbsp;
-      <Link className='nav-right' to="/cart">Cart</Link>
-      &nbsp; | &nbsp;
       <Link className='nav-right' to="/orders">My Orders</Link>
+      &nbsp; | &nbsp;
+      <Link className='nav-right' to="/cart">Cart</Link>
       &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
