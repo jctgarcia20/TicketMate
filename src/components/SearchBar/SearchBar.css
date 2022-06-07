@@ -1,0 +1,11 @@
+#zipcodeInput, #keywordInput, #searchBtn {
+  padding: 0.25rem;
+}
+
+#zipcodeInput {
+  width: 7rem;
+}
+
+#keywordInput {
+  width: 28rem;
+}
