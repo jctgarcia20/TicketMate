@@ -1,9 +1,10 @@
-import EventCard from "../../components/EventCard/EventCard";
-import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import TicketmasterService from '../../utilities/ticketmaster-service';
+import { Link, useParams } from "react-router-dom";
+import EventCard from "../../components/EventCard/EventCard";
 
-export default function EventsListPage({ events }) {
+import * as ticketmasterService from "../../utilities/ticketmaster-service";
+
+export default function EventsListPage() {
 
   // const eventList = events.map((event, idx) => (
   //   <EventCard
@@ -17,10 +18,25 @@ export default function EventsListPage({ events }) {
   //   resultsSearch();
   // };  
 
+  const [event, setEvent] = useState([]);
+
+  const [list, setList] = useState();
+
+  useEffect(() => {
+    const getEvent = async () => {
+      const events = await ticketmasterService.getAllEvents();
+      setEvent(events);
+      setList();
+    }
+    getEvent();
+  }, []);
+
   return (
     <>
       <h1>Event Page</h1>
-      {/* <ul>{eventList}</ul> */}
+      <p>
+        {event.map((event, idx) => <EventCard event={event} key={idx}/>)}
+      </p>
     </>
   );
 }

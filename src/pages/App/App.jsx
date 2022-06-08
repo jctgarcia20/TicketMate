@@ -11,18 +11,18 @@ import CartPage from '../CartPage/CartPage';
 import MyOrdersPage from '../MyOrdersPage/MyOrdersPage';
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
-// import TicketmasterService from '../../utilities/ticketmaster-service';
+import * as ticketmasterService from "../../utilities/ticketmaster-service";
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
 
-  const [searchResults, setSearchResults] = useState({});
+  // const [searchResults, setSearchResults] = useState({});
 
-  const [keyword, setKeyword] = useState("");
+  // const [keyword, setKeyword] = useState("");
 
   // const search = async (zipcode = "") => {
-  //   const eventResults = TicketmasterService.eventSearch(keyword, zipcode);
+  //   const eventResults = ticketmasterService.eventSearch(keyword, zipcode);
 
   //   const finalResults = [
   //     await eventResults
@@ -45,8 +45,8 @@ function App() {
               path="/Events"
               element={
                 <EventsListPage
-                  results={searchResults}
-                  keyword={keyword}
+                  // eventSearch={eventSearch}
+                  // results={searchResults}
                   // setKeyword={setKeyword}
                   // resultsSearch={search}
                 />
@@ -63,8 +63,8 @@ function App() {
         <AuthPage setUser={setUser} />
       }
       <SearchBar
-        keyword={keyword}
-        setKeyword={setKeyword}
+        // eventSearch={eventSearch}
+        // setKeyword={setKeyword}
         // searchBar={search}
       />
     </main>
