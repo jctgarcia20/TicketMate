@@ -3,19 +3,19 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
+import EventSearchPage from '../EventSearchPage/EventSearchPage';
 import EventsListPage from '../EventsListPage/EventsListPage';
-import ConcertsPage from '../ConcertsPage/ConcertsPage';
-import SportsPage from '../SportsPage/SportsPage';
-import MorePage from '../MorePage/MorePage';
 import CartPage from '../CartPage/CartPage';
 import MyOrdersPage from '../MyOrdersPage/MyOrdersPage';
 import NavBar from '../../components/NavBar/NavBar';
-import SearchBar from '../../components/SearchBar/SearchBar';
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
+
+  // const [eventList, setEventList] = useState([]);
+
 
   // const [searchResults, setSearchResults] = useState({});
 
@@ -41,10 +41,11 @@ function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<EventSearchPage />} />
             <Route
-              path="/Events"
+              path="/events"
               element={
-                <EventsListPage
+                <EventSearchPage
                   // eventSearch={eventSearch}
                   // results={searchResults}
                   // setKeyword={setKeyword}
@@ -52,9 +53,6 @@ function App() {
                 />
               }
             />
-            <Route path="/concerts" element={<ConcertsPage />} />
-            <Route path="/sports" element={<SportsPage />} />
-            <Route path="/more" element={<MorePage />} />
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>
@@ -62,11 +60,13 @@ function App() {
         :
         <AuthPage setUser={setUser} />
       }
-      <SearchBar
+      {/* <SearchBar
+        setEventList={setEventList}
+        eventList={eventList}
         // eventSearch={eventSearch}
         // setKeyword={setKeyword}
         // searchBar={search}
-      />
+      /> */}
     </main>
   );
 }

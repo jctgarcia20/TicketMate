@@ -20,13 +20,15 @@ export default function EventsListPage() {
 
   const [event, setEvent] = useState([]);
 
-  const [list, setList] = useState();
+  // const [list, setList] = useState();
+
+  const [eventList, setEventList] = useState([])
 
   useEffect(() => {
     const getEvent = async () => {
       const events = await ticketmasterService.getAllEvents();
       setEvent(events);
-      setList();
+      setEventList();
     }
     getEvent();
   }, []);
@@ -34,9 +36,14 @@ export default function EventsListPage() {
   return (
     <>
       <h1>Event Page</h1>
-      <p>
+      {/* <p>
         {event.map((event, idx) => <EventCard event={event} key={idx}/>)}
-      </p>
+      </p> */}
+      {/* <div>
+        {eventList.map((event) => (
+            <EventCard event={event} />
+          ))}
+      </div> */}
     </>
   );
 }

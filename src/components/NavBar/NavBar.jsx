@@ -14,13 +14,7 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link className='nav-left' to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link className='nav-right' to="/events">Events</Link>
-      &nbsp; | &nbsp;
-      <Link className='nav-left' to="/concerts">Concerts</Link>
-      &nbsp; | &nbsp;
-      <Link className='nav-left' to="/sports">Sports</Link>
-      &nbsp; | &nbsp;
-      <Link className='nav-left' to="/more">More</Link>
+      <Link className='nav-right' to="/events">Find an Event</Link>
       &nbsp; | &nbsp;
       <Link className='nav-right' to="/orders">My Orders</Link>
       &nbsp; | &nbsp;

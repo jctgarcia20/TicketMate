@@ -9,11 +9,11 @@ const eventSchema = new Schema({
   postalCode: {type: String},
   radius: {type: String},
   unit: {
-    type: stringEnum ['miles', 'km'],
+    type: String, enum: ['miles', 'km'],
     default: 'miles'
   },
   source: {
-    type: stringEnum ["ticketmaster", " universe", " frontgate", " tmr"]
+    type: String, enum: ["ticketmaster", " universe", " frontgate", " tmr"]
   },
   locale: {type: String, default: 'en'},
   marketId: {type: String},
@@ -40,8 +40,8 @@ const eventSchema = new Schema({
   segmentId: {type: []},
   segmentName: {type: []},
   includeFamily: {
-    type: stringEnum ["yes", " no", " only"],
-    default: yes
+    type: String, enum: ["yes", " no", " only"],
+    default: "yes"
   },
   promoterId: {type: String},
   genreId: {type: []},
@@ -50,11 +50,11 @@ const eventSchema = new Schema({
   subTypeId: {type: []},
   geoPoint: {type: String},
   preferredCountry: {
-    type: stringEnum ["us", " ca"],
+    type: String, enum: ["us", " ca"],
     default: 'us'
   },
   includeSpellcheck: {
-    type: stringEnum ["yes", " no"],
+    type: String, enum: ["yes", " no"],
     default: 'no'
   },
   domain: {type: []},

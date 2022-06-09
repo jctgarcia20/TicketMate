@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import EventCard from "../EventCard/EventCard";
-import './SearchBar.css'
+import EventCard from "../../components/EventCard/EventCard";
+import './EventSearchPage.css'
 
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
 
-export default function SearchBar() {
+export default function EventSearchPage({ handleEventSearch, setEventList, eventList, getEventSearch }) {
 
   // const [zipcode, setZipcode] = useState('');
   // const searchHistory = useNavigate();
@@ -24,24 +24,33 @@ export default function SearchBar() {
 
   const [zipcodeSearch, setZipcodeSearch] = useState("");
 
-  const [eventList, setEventList] = useState([]);
-
   const [zipcodeList, setZipcodeList] = useState([]);
+
+  const navigate = useNavigate();
+
+  const [query, setQuery] = useState('');
 
   function handleZipSearch(e) {
     e.preventDefault();
     fetchZip(zipcodeSearch);
   }
+  
+  const handleChange = (evt) => {
+    setEventSearch(evt.target.value);
+  };
 
-  function handleEventSearch(e) {
-    e.preventDefault();
-    fetchEvent(eventSearch);
+  function handleEventSearch(searchWord) {
+    setQuery(searchWord);
+    console.log(query);
+    getEventSearch(searchWord);
   }
 
-  const fetchEvent = async (search) => {
-    const event = await ticketmasterService.search(search);
-    setEventList(event);
-  };
+  // async function getEventSearch(searchWord) {
+  //   const eventResult = await ticketmasterService.search(searchWord);
+  //   setEventList(eventResult);
+  //   // navigate("/events");
+  //   console.log(eventList);
+  // };
 
   const fetchZip = async (search) => {
     const zipcode = await ticketmasterService.search(search);
@@ -50,6 +59,15 @@ export default function SearchBar() {
 
   return (
     <div>
+      <h1>Search for Event</h1>
+      {/* <SearchBar getEventSearch={getEventSearch} />
+      <div>
+        {eventList.map((event) => (
+            <EventCard event={event} />
+          ))}
+      </div> */}
+
+
       <form onSubmit={handleZipSearch}>
         <input 
           id='zipcodeInput'
@@ -63,7 +81,8 @@ export default function SearchBar() {
           id='keywordInput'
           placeholder='Search concerts, sports and more...'
           value={eventSearch}
-          onChange={(e) => setEventSearch(e.target.value)}
+          // onChange={(e) => setEventSearch(e.target.value)}
+          onChange={handleChange}
           // onKeyUp={(e) => {
           //   if (e.key === 'Enter') handleSearch();
           // }}
@@ -71,12 +90,13 @@ export default function SearchBar() {
       </form>
       <button
         id='searchBtn'
-        onClick={handleEventSearch}
+        handleEventSearch={handleEventSearch}
+        onClick={() => handleEventSearch(eventSearch)}
       >
         Search
       </button>
 
-      <div>
+      {/* <div>
         {eventList.map((event) => (
           <EventCard event={event} key={event.id} />
         ))}
@@ -85,7 +105,7 @@ export default function SearchBar() {
         {zipcodeList.map((event) => (
           <EventCard event={event} key={event.id} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
