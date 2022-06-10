@@ -1,8 +1,8 @@
 import sendRequest from "./send-request";
 
-const key = process.env.API_key;
+// const key = process.env.API_key;
 const BASE_URL = "/api/events";
-const rootURL = "https://app.ticketmaster.com/discovery/v2/";
+// const rootURL = "https://app.ticketmaster.com/discovery/v2/";
 
 // export async function eventSearch(keyword, zipcode) {
 //   try {
@@ -16,6 +16,7 @@ const rootURL = "https://app.ticketmaster.com/discovery/v2/";
 // }
 
 export function search(query) {
+  console.log(query)
   return sendRequest(`${BASE_URL}/search`, 'POST', {query});
 }
 

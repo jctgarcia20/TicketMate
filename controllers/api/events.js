@@ -11,15 +11,12 @@ const key = process.env.API_KEY;
 // const secret = process.env.API_SECRET;
 
 async function searchEvents(req, res) {
-  console.log("hello")
-  const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=100?apikey=${process.env.API_KEY}&keyword=${req.body.query}&locale=*`
-  // const event = await fetch(`${API_URL}?${req.body.query}`,{
-  //   key: `${process.env.API_KEY}`
-  // }
-  ).then(res => res.json()).then(data => data._embedded.events)
+  const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.API_KEY}&keyword=${req.body.query}&locale=*`).then(res => res.json());
+  console.log(event)
+  // ).then(res => res.json()).then(data => data._embedded.events)
   // res.json(event.data);
   // res.json(event.search_results);
-  res.json(event);
+  res.json(event._embedded.events);
 }
 
 async function getAllEvents(req, res) {
