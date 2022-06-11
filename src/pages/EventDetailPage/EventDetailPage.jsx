@@ -4,7 +4,7 @@ import * as ticketmasterService from "../../utilities/ticketmaster-service";
 
 export default function EventDetailPage() {
 
-  const [event, setEvent] = useState();
+  const [event, setEvent] = useState({});
 
   const { eventId } = useParams();
 
@@ -37,7 +37,7 @@ return (
   <>
     <div>
       {/* <h1>{event._embedded.events.name}</h1> */}
-      {/* <h1>{event.name}</h1> */}
+      <h1>{event.name}</h1>
       <h1>hello</h1>
     </div>
   </>

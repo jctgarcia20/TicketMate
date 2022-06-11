@@ -44,7 +44,7 @@ export default function EventSearchPage({ getEvent }) {
   async function handleEventSearch(evt) {
     evt.preventDefault();
     const events = await ticketmasterService.search(eventSearch);
-    console.log('hitting');
+    console.log(events);
     setEventList(events);
     // setEventSearch("");
   }
@@ -130,9 +130,9 @@ export default function EventSearchPage({ getEvent }) {
       </form>
 
       <div>
-        {eventList.map((event) => (
+        {!eventList.error ? eventList.map((event) => (
           <EventCard event={event} key={event.id} getEvent={getEvent} />
-        ))}
+        )): eventList.error}
       </div>
       {/* <div>
           {zipcodeList.map((event) => (
