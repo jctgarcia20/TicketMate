@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function EventCard({ event, /*eventDetails*/}) {
+export default function EventCard({ event }) {
   return (
     <div className="eventCard">
+      <br />
       <header>
         <img
           src={
@@ -17,16 +18,27 @@ export default function EventCard({ event, /*eventDetails*/}) {
           {new Date(event.dates.start.localDate).toLocaleDateString()}
           {event._embedded ? ` at ${event._embedded.venues[0].name}` : ""}
         </p>
+        <p>
+          {event._embedded.venues[0].city.name} 
+          {/* {event._embedded ? `, ${event._embedded.venues[0].state.name}` : ""} */}
+        </p>
+        <p>
+          {event._embedded ? `${event._embedded.venues[0].country.name}` : ""}
+        </p>
       </div>
       <footer>
-        <button
-          // onClick={async () => {
-          //   await eventDetails(event.id);
-          // }}
-        >
-          See Details
-        </button>
+        <Link to={`/events/${event.id}`}>
+          <button
+            // onClick={() => {
+            //   getEvent(event.id)
+            //   // await eventDetails(event.id);
+            // }}
+          >
+            See Details
+          </button>
+        </Link>
       </footer>
+      <br />
     </div>
   );
 }

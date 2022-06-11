@@ -23,3 +23,7 @@ export function search(query) {
 export function getAllEvents() {
   return sendRequest(`${BASE_URL}/all`);
 }
+
+export function getEventDetails(params) {
+  return sendRequest(`${BASE_URL}/eventId/details`, 'POST', {params});
+}

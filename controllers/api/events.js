@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 module.exports = {
   searchEvents,
   getAllEvents,
+  getEventDetails,
 };
 
 const API_URL = 'https://app.ticketmaster.com/discovery/v2/';
@@ -23,4 +24,9 @@ async function getAllEvents(req, res) {
   const events = await Event.findById(req.params.id);
   console.log(events);
   res.json(events);
+}
+
+async function getEventDetails(req, res) {
+  const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${req.body.params}?apikey=${process.env.API_KEY}&locale=*`).then(res => res.json());
+  res.json(event.id);
 }

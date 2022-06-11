@@ -4,7 +4,7 @@ import EventCard from "../../components/EventCard/EventCard";
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
 import './EventSearchPage.css'
 
-export default function EventSearchPage(/*{ handleEventSearch, setEventList, eventList, getEventSearch }*/) {
+export default function EventSearchPage({ getEvent }) {
 
   // Search for Events using keywords
   const [eventSearch, setEventSearch] = useState("");
@@ -131,7 +131,7 @@ export default function EventSearchPage(/*{ handleEventSearch, setEventList, eve
 
       <div>
         {eventList.map((event) => (
-          <EventCard event={event} key={event.id} />
+          <EventCard event={event} key={event.id} getEvent={getEvent} />
         ))}
       </div>
       {/* <div>
