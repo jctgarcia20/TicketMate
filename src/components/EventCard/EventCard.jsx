@@ -31,7 +31,7 @@ export default function EventCard({ event }) {
           <button
             // onClick={() => {
             //   getEvent(event.id)
-            //   // await eventDetails(event.id);
+            //   await eventDetails(event.id);
             // }}
           >
             See Details

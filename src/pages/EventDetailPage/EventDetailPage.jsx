@@ -19,13 +19,27 @@ export default function EventDetailPage() {
 
   // if(!event) return null;
 
-  return (
-    <>
-    <div>
-      {/* <h1>{event.name}</h1> */}
+  // const [event, setEvent] = useState();
 
+  // const {id} = useParams();
+
+  // console.log(id);
+
+  // async function getEvent(eventId) {
+  //   const getEvents = await ticketmasterService.getEventDetails(eventId);
+  //   setEvent(getEvents);
+  //   console.log(id);
+  // }
+  // getEvent();
+// }, [eventId]);
+
+return (
+  <>
+    <div>
+      {/* <h1>{event._embedded.events.name}</h1> */}
+      {/* <h1>{event.name}</h1> */}
+      <h1>hello</h1>
     </div>
-    <h1>hello</h1>
-    </>
-  );
+  </>
+);
 }

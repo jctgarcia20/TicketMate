@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
 import EventSearchPage from '../EventSearchPage/EventSearchPage';
 import EventDetailPage from '../EventDetailPage/EventDetailPage';
+import WishListPage from '../WishListPage/WishListPage';
 import CartPage from '../CartPage/CartPage';
 import MyOrdersPage from '../MyOrdersPage/MyOrdersPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -18,15 +19,14 @@ function App() {
 
   // const { eventId } = useParams();
 
-  // // useEffect(function () {
-  //   async function getEvent(event) {
+  // useEffect(function () {
+  //   async function getEvent() {
+  //     const event = await ticketmasterService.getEventDetails(eventId);
+  //     setEvent(event);
   //     console.log('test');
-  //     const eventDetail = await ticketmasterService.getEventDetails(eventId);
-  //     // setEvent(event);
-  //     console.log(eventDetail);
   //   }
-  //   // getEvent();
-  // // }, [eventId]);
+  //   getEvent();
+  // }, [eventId]);
 
   // if(!event) return null;
 
@@ -41,6 +41,7 @@ function App() {
             {/* <Route path="/search" element={<EventSearchPage />} /> */}
             <Route path="/events" element={<EventSearchPage />} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
+            <Route path="/wishlist" element={<WishListPage />} />
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>

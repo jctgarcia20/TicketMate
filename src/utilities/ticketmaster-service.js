@@ -27,3 +27,5 @@ export function getAllEvents() {
 export function getEventDetails(params) {
   return sendRequest(`${BASE_URL}/eventId/details`, 'POST', {params});
 }
+
+

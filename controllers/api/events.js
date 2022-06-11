@@ -28,5 +28,8 @@ async function getAllEvents(req, res) {
 
 async function getEventDetails(req, res) {
   const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${req.body.params}?apikey=${process.env.API_KEY}&locale=*`).then(res => res.json());
-  res.json(event.id);
+  // const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.API_KEY}&id=${req.body.params}&locale=*`).then(res => res.json());
+  console.log(event)
+  res.json(event.events);
+  // res.json(event._embedded.events);
 }
