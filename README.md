@@ -22,10 +22,11 @@
 ## The Website
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">Landing Page</h3> | <img src="">
-| <h3 align="center">Search Events</h3> | <img src="" >
-| <h3 align="center">View More Details</h3> |  <img src="">
-| <h3 align="center">Add to Wishlist</h3> | <img src="">
+| <h3 align="center">Sign In Page</h3> | <img src="https://i.imgur.com/CNtCbzO.png">
+| <h3 align="center">Landing Page</h3> | <img src="https://i.imgur.com/TdGbtf1.png">
+| <h3 align="center">Search Events</h3> | <img src="https://i.imgur.com/RvUoN7e.png" >
+| <h3 align="center">View More Details</h3> |  <img src="https://i.imgur.com/xEreeMK.png">
+| <h3 align="center">Add to Wishlist</h3> | <img src="https://i.imgur.com/oFBk2Hh.png">
 </details>
 <br>
 
