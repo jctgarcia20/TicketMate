@@ -3,19 +3,19 @@ import * as ticketmasterService from "../../utilities/ticketmaster-service";
 
 export default function EventCard({ event }) {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const check = { 
-    name: event.name,
-    image: event.images[0].url,
-  };
+  // const check = { 
+  //   name: event.name,
+  //   image: event.images[0].url,
+  // };
 
-  async function handleAddToWishlist() {
-    const addEvent = await ticketmasterService.addEventToWishlist(check);
-    console.log(addEvent);
-    console.log(event);
-    navigate('/wishlist')
-  }
+  // async function handleAddToWishlist() {
+  //   const addEvent = await ticketmasterService.addEventToWishlist(check);
+  //   console.log(addEvent);
+  //   console.log(event);
+  //   navigate('/wishlist')
+  // }
 
   return (
     <div className="eventCard">
@@ -47,7 +47,7 @@ export default function EventCard({ event }) {
             See Details
           </button>
         </Link>
-        <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button>
+        {/* <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button> */}
       </footer>
       <br />
     </div>
