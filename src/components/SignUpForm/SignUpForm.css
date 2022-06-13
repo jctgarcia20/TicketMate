@@ -1,0 +1,44 @@
+.authForms {
+  display: flex;
+  flex-direction: column;
+  background-color: #75b5fe;
+  width: 40vmin;
+  height: 30vmin;
+  justify-content: center;
+  margin: auto;
+  border-radius: 2vmin;
+  margin-top: 3vmin;
+}
+
+input {
+  margin-bottom: 2vmin;
+  width: 15vmin;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.4vmin;
+  border-radius: 0.75vmin;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10vmin;
+  color: white;
+}
+
+.name, .email {
+  margin-right: 12vmin;
+}
+
+.confirm {
+  margin-right: 11vmin;
+}
+
+.submit {
+  width: 8vmin;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(12, 0, 144);
+  color: white;
+  padding: 0.75vmin;
+  border-radius: 1.25vmin;
+}

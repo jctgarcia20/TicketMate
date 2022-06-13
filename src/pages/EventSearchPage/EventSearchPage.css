@@ -9,3 +9,23 @@
 #keywordInput {
   width: 28rem;
 }
+
+.searchForm {
+  height: 20vmin;
+  background-color: rgb(25, 30, 36);
+}
+
+#keywordInput {
+  padding: 1vmin;
+}
+
+h1 {
+  color: white;
+}
+
+.searchBtn {
+  background-color: rgb(25, 61, 133);
+  padding: 0.75vmin;
+  margin-left: 0.5vmin;
+  border-radius: 0.5vmin;
+}

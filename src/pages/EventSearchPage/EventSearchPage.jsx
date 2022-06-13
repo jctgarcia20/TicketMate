@@ -19,9 +19,11 @@ export default function EventSearchPage({ getEvent }) {
 
   return (
     <>
-      <h1>Search for Events</h1>
 
-      <form onSubmit={handleEventSearch}>
+      <form className="searchForm" onSubmit={handleEventSearch}>
+        <br />
+        <br />
+        <h1>Search for Events</h1>
         <input
           id="keywordInput"
           type="text"
@@ -29,7 +31,7 @@ export default function EventSearchPage({ getEvent }) {
           value={eventSearch}
           onChange={(evt) => setEventSearch(evt.target.value)}
         />
-        <button id='searchBtn'>
+        <button className='searchBtn'>
           Search
         </button>
       </form>

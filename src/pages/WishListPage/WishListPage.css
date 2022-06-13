@@ -1,0 +1,15 @@
+.wishTitle {
+  background-color: rgb(25, 30, 36);
+  height: 6vmin;
+  margin-top: -1vmin;
+}
+
+.removeBtn {
+  background-color: rgb(25, 61, 133);
+  padding: 0.5vmin;
+  margin-top: 0.5vmin;
+}
+
+.eventName {
+  font-size: 2vmin;
+}

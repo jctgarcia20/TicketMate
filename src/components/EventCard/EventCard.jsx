@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import * as ticketmasterService from "../../utilities/ticketmaster-service";
+import "./EventCard.css";
 
 export default function EventCard({ event }) {
 
@@ -29,7 +29,7 @@ export default function EventCard({ event }) {
         />
       </header>
       <div>
-        <h5>{event.name}</h5>
+        <h2>{event.name}</h2>
         <p>
           {new Date(event.dates.start.localDate).toLocaleDateString()}
           {event._embedded ? ` at ${event._embedded.venues[0].name}` : ""}
@@ -43,7 +43,7 @@ export default function EventCard({ event }) {
       </div>
       <footer>
         <Link to={`/events/${event.id}`}>
-          <button>
+          <button className="detailsBtn">
             See Details
           </button>
         </Link>

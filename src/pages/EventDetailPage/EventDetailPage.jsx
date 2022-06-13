@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
+import "./EventDetailPage.css";
 
 export default function EventDetailPage({ event, setEvent }) {
 
@@ -74,7 +75,7 @@ export default function EventDetailPage({ event, setEvent }) {
         <p>{event.pleaseNote ?? ""}</p>
         <p>{event.additionalInfo ?? ""}</p>
       </div>
-      <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button>
+      <button className="addToWish" onClick={handleAddToWishlist}>Add Event to Your Wishlist</button>
     </>
   );
 }
