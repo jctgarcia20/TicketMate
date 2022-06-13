@@ -9,10 +9,10 @@ router.get('/all', eventsCtrl.getAllEvents);
 
 router.post('/eventId/details', eventsCtrl.getEventDetails);
 
-router.post('/add', eventsCtrl.addEventToWishlist);
+router.post('/add', ensureLoggedIn, eventsCtrl.addEventToWishlist);
 
-router.get('/wishlist', eventsCtrl.getWishlist);
+router.get('/wishlist', ensureLoggedIn, eventsCtrl.getWishlist);
 
-router.delete('/:id', eventsCtrl.deleteEventWishlist);
+router.delete('/:id', ensureLoggedIn, eventsCtrl.deleteEventWishlist);
 
 module.exports = router;

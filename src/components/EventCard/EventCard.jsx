@@ -5,7 +5,8 @@ export default function EventCard({ event }) {
 
   const navigate = useNavigate();
 
-  const check = { name: event.name,
+  const check = { 
+    name: event.name,
     image: event.images[0].url,
   };
 
