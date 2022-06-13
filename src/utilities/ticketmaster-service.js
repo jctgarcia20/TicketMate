@@ -19,10 +19,6 @@ export function addEventToWishlist(event) {
   return sendRequest(`${BASE_URL}/add`, 'POST', event);
 }
 
-// export function getWishlist(wishlist) {
-//   return sendRequest(`${BASE_URL}/wishlist`, wishlist);
-// }
-
 export function getWishlist() {
   return sendRequest(`${BASE_URL}/wishlist`);
 }

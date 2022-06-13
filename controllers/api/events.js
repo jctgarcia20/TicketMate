@@ -30,19 +30,6 @@ async function getEventDetails(req, res) {
 }
 
 async function addEventToWishlist(req, res) {
-  // const wishlist = await Event.findOne({ id: req.body.id })
-  // if (wishlist) {
-  //   let wishlistUser = wishlist.user.includes(req.user._id);
-  //   if (wishlistUser) return
-  //   wishlist.user.push(req.user._id);
-  //   await wishlist.save();
-  //   res.json(wishlist);
-  // } else {
-  //   req.body.user = req.user._id;
-  //   const newWishlist = new Event(req.body);
-  //   await newWishlist.save();
-  //   res.json(newWishlist);
-  // }
   const wishlist = await Event(req.body);
   req.body.user = req.user._id;
   const newWishList = new Event(req.body); 
@@ -52,7 +39,6 @@ async function addEventToWishlist(req, res) {
 
 async function getWishlist(req, res) {
   const wishlist = await Event.find({ user: req.user._id }).sort("-createdAt");
-  // const wishlist = await Event.find({ id: req.user._id }).sort("-createdAt");
   console.log(wishlist)
   console.log(req.user._id)
   res.json(wishlist);

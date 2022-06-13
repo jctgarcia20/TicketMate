@@ -18,10 +18,6 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link className='nav-right' to="/wishlist">Wishlist</Link>
       &nbsp; | &nbsp;
-      <Link className='nav-right' to="/orders">My Orders</Link>
-      &nbsp; | &nbsp;
-      <Link className='nav-right' to="/cart">Cart</Link>
-      &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
       <Link className='nav-right' to="" onClick={handleLogOut}>Log Out</Link>

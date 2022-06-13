@@ -60,10 +60,6 @@ const eventSchema = new Schema({
     ref: 'User',
     required: true
   },
-  // includeSpellcheck: {
-  //   type: String, enum: ["yes", " no"],
-  //   default: 'no'
-  // },
   domain: {type: []},
 }, {
   timestamps: true

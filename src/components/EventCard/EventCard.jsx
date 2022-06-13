@@ -9,13 +9,10 @@ export default function EventCard({ event }) {
     image: event.images[0].url,
   };
 
-
-
   async function handleAddToWishlist() {
     const addEvent = await ticketmasterService.addEventToWishlist(check);
     console.log(addEvent);
     console.log(event);
-    // setWishlist(wishlist);
     navigate('/wishlist')
   }
 
@@ -38,7 +35,6 @@ export default function EventCard({ event }) {
         </p>
         <p>
           {event._embedded.venues[0].city.name} 
-          {/* {event._embedded ? `, ${event._embedded.venues[0].state.name}` : ""} */}
         </p>
         <p>
           {event._embedded ? `${event._embedded.venues[0].country.name}` : ""}
@@ -46,12 +42,7 @@ export default function EventCard({ event }) {
       </div>
       <footer>
         <Link to={`/events/${event.id}`}>
-          <button
-            // onClick={() => {
-            //   getEvent(event.id)
-            //   await eventDetails(event.id);
-            // }}
-          >
+          <button>
             See Details
           </button>
         </Link>

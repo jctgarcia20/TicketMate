@@ -1,7 +1,6 @@
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
 import { useState, useEffect, Link } from "react";
 import { useNavigate } from "react-router-dom";
-import WishlistCard from "../../components/WishlistCard/WishlistCard";
 import EventDetailPage from "../EventDetailPage/EventDetailPage";
 
 export default function WishListPage({ event, wishlist, setWishlist, user }) {
@@ -20,13 +19,6 @@ export default function WishListPage({ event, wishlist, setWishlist, user }) {
     }
     getUserWishlist();
   }, [refresh]);
-
-  // async function deleteEventWishlist() {
-  //   const removeEvent = await ticketmasterService.deleteEventWishlist(event._id);
-  //   const updateWishlist = event.filter(event => event._id !== removeEvent._id);
-  //   setWishlist(updateWishlist);
-  //   navigate('/wishlist')
-  // }
 
   async function deleteEventWishlist(id) {
     const removeEvent = await ticketmasterService.deleteEventWishlist(id);
