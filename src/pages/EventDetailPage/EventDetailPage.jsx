@@ -4,31 +4,32 @@ import WishlistCard from "../../components/WishlistCard/WishlistCard";
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
 // import * as wishlistAPI from "../../utilities/wishlists-api";
 
-export default function EventDetailPage({ event, setEvent }) {
+export default function EventDetailPage({ event, setEvent, wishlist, setWishlist }) {
 
   // const [event, setEvent] = useState({});
 
   const { eventId } = useParams();
 
-  const [wishlist, setWishlist] = useState();
+  // const [wishlist, setWishlist] = useState();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(function () {
     async function getEvent() {
       const event = await ticketmasterService.getEventDetails(eventId);
       setEvent(event);
       console.log('test');
+      console.log(event);
     }
     getEvent();
-  }, [eventId]);
+  }, []);
 
-  async function handleAddToWishlist() {
-    const addEvent = await ticketmasterService.addEventToWishlist(event);
-    console.log(addEvent);
-    setWishlist(wishlist);
-    navigate('/wishlist')
-  }
+  // async function handleAddToWishlist() {
+  //   const addEvent = await ticketmasterService.addEventToWishlist(event);
+  //   console.log(addEvent);
+  //   setWishlist(wishlist);
+  //   navigate('/wishlist')
+  // }
 
   // async function handleAddToWishlist() {
   //   const addEvent = await wishlistAPI.addEventToWishlist(user._id, event.id);
@@ -52,7 +53,7 @@ return (
         /> */}
       <h1>{event.name}</h1>
       {/* <WishlistCard wishlist={wishlist} /> */}
-      <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button>
+      {/* <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button> */}
       {/* <button>Add Event to Your Wishlist</button> */}
     </div>
   </>

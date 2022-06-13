@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
+  name: {type: String },
+  image: { type: String },
   id: {type: String},
   keyword: {type: String},
   attractionId: {type: String},
@@ -52,6 +54,11 @@ const eventSchema = new Schema({
   preferredCountry: {
     type: String, enum: ["us", " ca"],
     default: 'us'
+  },
+  user: { 
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
   // includeSpellcheck: {
   //   type: String, enum: ["yes", " no"],

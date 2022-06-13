@@ -51,5 +51,8 @@ async function addEventToWishlist(req, res) {
 
 async function getWishlist(req, res) {
   const wishlist = await Event.find({ user: req.user._id }).sort("-createdAt");
+  // const wishlist = await Event.find({ id: req.user._id }).sort("-createdAt");
+  console.log(wishlist)
+  console.log(req.user._id)
   res.json(wishlist);
 }

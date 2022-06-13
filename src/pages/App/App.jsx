@@ -17,6 +17,8 @@ function App() {
 
   const [event, setEvent] = useState({});
 
+  const [wishlist, setWishlist] = useState();
+
   // const [wishlist, setWishlist] = useState([]);
   // const navigate = useNavigate();
 
@@ -47,8 +49,13 @@ function App() {
             <Route path="/" element={<HomePage />} />
             {/* <Route path="/search" element={<EventSearchPage />} /> */}
             <Route path="/events" element={<EventSearchPage />} />
-            <Route path="/events/:eventId" element={<EventDetailPage event={event} setEvent={setEvent} />} />
-            <Route path="/wishlist" element={<WishListPage event={event} />} />
+            <Route path="/events/:eventId" element={<EventDetailPage
+              event={event}
+              setEvent={setEvent}
+              wishlist={wishlist}
+              setWishlist={setWishlist}
+            />} />
+            <Route path="/wishlist" element={<WishListPage event={event} user={user} wishlist={wishlist} />} />
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>

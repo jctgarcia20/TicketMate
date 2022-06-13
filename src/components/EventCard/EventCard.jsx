@@ -1,6 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import * as ticketmasterService from "../../utilities/ticketmaster-service";
 
 export default function EventCard({ event }) {
+
+  const navigate = useNavigate();
+
+  const check = { name: event.name,
+    image: event.images[0].url,
+  };
+
+
+
+  async function handleAddToWishlist() {
+    const addEvent = await ticketmasterService.addEventToWishlist(check);
+    console.log(addEvent);
+    console.log(event);
+    // setWishlist(wishlist);
+    navigate('/wishlist')
+  }
+
   return (
     <div className="eventCard">
       <br />
@@ -37,6 +55,7 @@ export default function EventCard({ event }) {
             See Details
           </button>
         </Link>
+        <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button>
       </footer>
       <br />
     </div>
