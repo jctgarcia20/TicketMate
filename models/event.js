@@ -53,10 +53,10 @@ const eventSchema = new Schema({
     type: String, enum: ["us", " ca"],
     default: 'us'
   },
-  includeSpellcheck: {
-    type: String, enum: ["yes", " no"],
-    default: 'no'
-  },
+  // includeSpellcheck: {
+  //   type: String, enum: ["yes", " no"],
+  //   default: 'no'
+  // },
   domain: {type: []},
 }, {
   timestamps: true

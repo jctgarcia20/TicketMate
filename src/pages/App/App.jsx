@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
@@ -14,6 +14,13 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
+
+  const [event, setEvent] = useState({});
+
+  // const [wishlist, setWishlist] = useState([]);
+  // const navigate = useNavigate();
+
+  // async function addTo(eventObj) {}
 
   // const [event, setEvent] = useState();
 
@@ -40,8 +47,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             {/* <Route path="/search" element={<EventSearchPage />} /> */}
             <Route path="/events" element={<EventSearchPage />} />
-            <Route path="/events/:eventId" element={<EventDetailPage />} />
-            <Route path="/wishlist" element={<WishListPage />} />
+            <Route path="/events/:eventId" element={<EventDetailPage event={event} setEvent={setEvent} />} />
+            <Route path="/wishlist" element={<WishListPage event={event} />} />
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>

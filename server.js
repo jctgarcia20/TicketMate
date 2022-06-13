@@ -20,6 +20,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 // middleware that adds the user object from a JWT to req.user
 app.use(require('./config/checkToken'));
 
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/events', require('./routes/api/events'));

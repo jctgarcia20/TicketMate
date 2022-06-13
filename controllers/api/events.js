@@ -5,19 +5,14 @@ module.exports = {
   searchEvents,
   getAllEvents,
   getEventDetails,
-};
-
-const API_URL = 'https://app.ticketmaster.com/discovery/v2/';
-const key = process.env.API_KEY;
-// const secret = process.env.API_SECRET;
+  addEventToWishlist,
+  getWishlist,
+}
 
 async function searchEvents(req, res) {
   const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.API_KEY}&keyword=${req.body.query}&locale=*`).then(res => res.json());
   console.log(event)
   if (!event._embedded) return res.json({error: `Search does not exist`});
-  // ).then(res => res.json()).then(data => data._embedded.events)
-  // res.json(event.data);
-  // res.json(event.search_results);
   res.json(event._embedded.events);
 }
 
@@ -29,8 +24,32 @@ async function getAllEvents(req, res) {
 
 async function getEventDetails(req, res) {
   const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${req.body.params}?apikey=${process.env.API_KEY}&locale=*`).then(res => res.json());
-  // const event = await fetch(`https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.API_KEY}&id=${req.body.params}&locale=*`).then(res => res.json());
   console.log(event)
   res.json(event);
-  // res.json(event._embedded.events);
+}
+
+async function addEventToWishlist(req, res) {
+  // const wishlist = await Event.findOne({ id: req.body.id })
+  // if (wishlist) {
+  //   let wishlistUser = wishlist.user.includes(req.user._id);
+  //   if (wishlistUser) return
+  //   wishlist.user.push(req.user._id);
+  //   await wishlist.save();
+  //   res.json(wishlist);
+  // } else {
+  //   req.body.user = req.user._id;
+  //   const newWishlist = new Event(req.body);
+  //   await newWishlist.save();
+  //   res.json(newWishlist);
+  // }
+  const wishlist = await Event(req.body);
+  req.body.user = req.user._id;
+  const newWishList = new Event(req.body); 
+  await newWishList.save();
+  res.json(newWishList)
+}
+
+async function getWishlist(req, res) {
+  const wishlist = await Event.find({ user: req.user._id }).sort("-createdAt");
+  res.json(wishlist);
 }

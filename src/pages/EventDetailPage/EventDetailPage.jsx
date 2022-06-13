@@ -1,12 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import WishlistCard from "../../components/WishlistCard/WishlistCard";
 import * as ticketmasterService from "../../utilities/ticketmaster-service";
+// import * as wishlistAPI from "../../utilities/wishlists-api";
 
-export default function EventDetailPage() {
+export default function EventDetailPage({ event, setEvent }) {
 
-  const [event, setEvent] = useState({});
+  // const [event, setEvent] = useState({});
 
   const { eventId } = useParams();
+
+  const [wishlist, setWishlist] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(function () {
     async function getEvent() {
@@ -17,28 +23,37 @@ export default function EventDetailPage() {
     getEvent();
   }, [eventId]);
 
-  // if(!event) return null;
+  async function handleAddToWishlist() {
+    const addEvent = await ticketmasterService.addEventToWishlist(event);
+    console.log(addEvent);
+    setWishlist(wishlist);
+    navigate('/wishlist')
+  }
 
-  // const [event, setEvent] = useState();
-
-  // const {id} = useParams();
-
-  // console.log(id);
-
-  // async function getEvent(eventId) {
-  //   const getEvents = await ticketmasterService.getEventDetails(eventId);
-  //   setEvent(getEvents);
-  //   console.log(id);
+  // async function handleAddToWishlist() {
+  //   const addEvent = await wishlistAPI.addEventToWishlist(user._id, event.id);
+  //   setWishlist(addEvent);
   // }
-  // getEvent();
-// }, [eventId]);
+
+  // const handleAddToWishlist = async () => {
+  //   const addEvent = await wishlistAPI.addEventToWishlist(user._id, event._id);
+  //   console.log(addEvent)
+  //   setWishlist(addEvent);
+  // }
 
 return (
   <>
     <div>
-      {/* <h1>{event._embedded.events.name}</h1> */}
+      {/* <img
+          src={
+            event.images.find((img) => img.ratio == "16_9" && img.width > 500).url
+          }
+          alt={event.name}
+        /> */}
       <h1>{event.name}</h1>
-      <h1>hello</h1>
+      {/* <WishlistCard wishlist={wishlist} /> */}
+      <button onClick={handleAddToWishlist}>Add Event to Your Wishlist</button>
+      {/* <button>Add Event to Your Wishlist</button> */}
     </div>
   </>
 );
