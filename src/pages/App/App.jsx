@@ -55,7 +55,7 @@ function App() {
               wishlist={wishlist}
               setWishlist={setWishlist}
             />} />
-            <Route path="/wishlist" element={<WishListPage event={event} user={user} wishlist={wishlist} />} />
+            <Route path="/wishlist" element={<WishListPage event={event} user={user} wishlist={wishlist} setWishlist={setWishlist} />} />
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>

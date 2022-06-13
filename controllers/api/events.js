@@ -7,6 +7,7 @@ module.exports = {
   getEventDetails,
   addEventToWishlist,
   getWishlist,
+  deleteEventWishlist,
 }
 
 async function searchEvents(req, res) {
@@ -55,4 +56,10 @@ async function getWishlist(req, res) {
   console.log(wishlist)
   console.log(req.user._id)
   res.json(wishlist);
+}
+
+async function deleteEventWishlist(req, res) {
+  const removeEvent = await Event.findByIdAndDelete(req.params.id);
+  console.log(removeEvent)
+  res.json(removeEvent);
 }

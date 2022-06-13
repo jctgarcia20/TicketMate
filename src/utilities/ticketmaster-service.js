@@ -26,3 +26,7 @@ export function addEventToWishlist(event) {
 export function getWishlist() {
   return sendRequest(`${BASE_URL}/wishlist`);
 }
+
+export function deleteEventWishlist(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
+}

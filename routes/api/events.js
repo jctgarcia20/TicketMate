@@ -13,4 +13,6 @@ router.post('/add', eventsCtrl.addEventToWishlist);
 
 router.get('/wishlist', eventsCtrl.getWishlist);
 
+router.delete('/:id', eventsCtrl.deleteEventWishlist);
+
 module.exports = router;
